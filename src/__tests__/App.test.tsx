@@ -22,7 +22,13 @@ describe('Navigation', () => {
   it('navigates to Education page', async () => {
     render(<App />);
     await userEvent.click(screen.getByRole('link', { name: 'Education' }));
-    expect(screen.getByText(/Education/)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2, name: 'Education Background' })).toBeInTheDocument();
+  });
+
+  it('navigates to About page', async () => {
+    render(<App />);
+    await userEvent.click(screen.getByRole('link', { name: 'About' }));
+    expect(screen.getByRole('heading', { level: 2, name: 'About Me' })).toBeInTheDocument();
   });
 
   it('navigates back to Home from another page', async () => {

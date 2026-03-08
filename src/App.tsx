@@ -41,7 +41,27 @@ function App() {
           </div>
         );
       case '/about':
-        return <h1 className="text-2xl font-bold animate-in fade-in duration-500">About (placeholder)</h1>;
+        return (
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 animate-in fade-in duration-500">
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">About Me</h2>
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="w-48 h-48 shrink-0 rounded-full overflow-hidden border-4 border-indigo-100 shadow-lg">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Summer" alt="Summer Avatar" className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-indigo-600 mb-2">Hi, I'm Summer! 👋</h3>
+                <p className="text-slate-600 mb-4 leading-relaxed">
+                  I'm a passionate software engineer who loves building beautiful, high-performance web applications. I enjoy tackling complex problems and learning new technologies to constantly improve my craft.
+                </p>
+                <div className="flex gap-4">
+                  <span className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">React</span>
+                  <span className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">TypeScript</span>
+                  <span className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">Node.js</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
       default:
         return (
           <div className="text-lg text-slate-800 animate-in fade-in duration-500">
