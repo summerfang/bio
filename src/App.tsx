@@ -144,22 +144,38 @@ function HomePage({ navigate }: { navigate: (to: string) => void }) {
     },
   ];
 
+  const skills = ['React', 'TypeScript', 'Python', 'Machine Learning', 'Node.js', 'Docker'];
+
   return (
     <div className="animate-in fade-in duration-500">
       {/* Hero */}
       <section className="py-16 text-center">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-indigo-100 text-indigo-600 mb-6">
-          <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-linear-to-br from-indigo-400 to-indigo-600 text-white mb-6 shadow-lg">
+          <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           </svg>
         </div>
-        <h1 className="text-4xl font-bold text-slate-900 mb-3">Summer Fng</h1>
-        <p className="text-lg text-indigo-600 font-medium mb-4">Software Engineer</p>
-        <p className="max-w-xl mx-auto text-slate-600 leading-relaxed">
+        <h1 className="text-5xl font-bold text-slate-900 mb-2">Summer Fng</h1>
+        <p className="text-xl text-indigo-600 font-medium mb-5">Software Engineer</p>
+        <p className="max-w-xl mx-auto text-slate-600 leading-relaxed mb-8">
           Graduate of Hefei University of Technology with a passion for AI and modern
           web development. Building things that are useful and well-crafted.
         </p>
+        {/* Skill tags */}
+        <div className="flex flex-wrap justify-center gap-2">
+          {skills.map((skill) => (
+            <span
+              key={skill}
+              className="px-3 py-1 text-sm font-medium bg-indigo-50 text-indigo-700 rounded-full border border-indigo-100"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
       </section>
+
+      {/* Divider */}
+      <div className="border-t border-slate-200 mb-10" />
 
       {/* Quick-link cards */}
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 pb-16">
@@ -168,12 +184,17 @@ function HomePage({ navigate }: { navigate: (to: string) => void }) {
             key={to}
             type="button"
             onClick={() => navigate(to)}
-            className="text-left p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
+            className="text-left p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all group"
           >
             <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 mb-4 group-hover:bg-indigo-100 transition-colors">
               {icon}
             </div>
-            <h3 className="font-semibold text-slate-800 mb-1">{label}</h3>
+            <div className="flex items-center justify-between mb-1">
+              <h3 className="font-semibold text-slate-800">{label}</h3>
+              <svg className="w-4 h-4 text-slate-300 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
             <p className="text-sm text-slate-500">{description}</p>
           </button>
         ))}
